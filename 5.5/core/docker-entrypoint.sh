@@ -25,9 +25,5 @@ sed -i -e "s/worker_processes auto/worker_processes $procs/" /etc/nginx/nginx.co
 sed -i "s/MYSERVERNAME/$SERVERNAME $SERVERALIAS/g" /etc/nginx/sites-enabled/default
 sed -i "s/MYDOCUMENTROOT/$DOCUMENTROOT/g" /etc/nginx/sites-enabled/default
 
-# SSH keys permissions
-chown -R www-data:www-data /var/www/.ssh/
-chmod -R 600 /var/www/.ssh/
-
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
